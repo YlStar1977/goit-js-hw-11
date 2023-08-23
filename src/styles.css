@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.search-form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-card {
+  margin: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.info-item {
+  margin: 5px 0;
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.data-container {
+  display: flex;
+  align-items: center;
+}
+
+.data {
+  margin-left: 10px; /* Відстань між цифрами */
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.info-label,
+.info-value {
+  flex-basis: 48%; /* Залиште трохи місця між колонками */
+}
+
+.notiflix-notification.failure {
+  background-color: #f44336; /* Червоний колір для повідомлення про помилку */
+}
