@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: aqua;
 }
 
 .search-form {
@@ -19,6 +20,7 @@ body {
   padding: 10px;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #ddd;
 }
 
 .info-item {
@@ -32,6 +34,7 @@ body {
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: blue;
 }
 
 .data-container {
@@ -57,7 +60,7 @@ body {
 
 .info-label,
 .info-value {
-  flex-basis: 48%; /* Залиште трохи місця між колонками */
+  flex-basis: 48%; /*  місце між колонками */
 }
 
 .notiflix-notification.failure {

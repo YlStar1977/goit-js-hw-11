@@ -7,14 +7,15 @@ const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 let currentPage = 1;
 let currentQuery = '';
+let isFirstLoad = true;
 
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   gallery.innerHTML = '';
   currentPage = 1;
   currentQuery = e.target.searchQuery.value;
-   if (currentQuery.trim() === '') {
-    // Вивести повідомлення про помилку, якщо не введено запит
+  
+  if (currentQuery.trim() === '') {
     Notiflix.Notify.failure('Please enter a search query.');
   } else {
     await fetchImages(currentQuery, currentPage);
@@ -41,16 +42,11 @@ async function fetchImages(query, page) {
         gallery.appendChild(card);
       });
 
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'
-      });
-
-      loadMoreBtn.style.display = 'block';
-
       if (data.totalHits <= currentPage * 40) {
         loadMoreBtn.style.display = 'none';
         gallery.insertAdjacentHTML('beforeend', '<p class="end-message">We\'re sorry, but you\'ve reached the end of search results.</p>');
+      } else {
+        loadMoreBtn.style.display = 'block';
       }
     } else {
       if (page === 1) {
@@ -63,7 +59,6 @@ async function fetchImages(query, page) {
     Notiflix.Notify.failure('Error fetching images. Please try again later.');
   }
 }
-
 function createImageCard(image) {
   const card = document.createElement('div');
   card.classList.add('photo-card');
