@@ -37,10 +37,18 @@ async function fetchImages(query, page) {
     const data = response.data;
 
     if (data.hits.length > 0) {
+      const fragment = document.createDocumentFragment();
+
       data.hits.forEach(image => {
         const card = createImageCard(image);
-        gallery.appendChild(card);
+        fragment.appendChild(card);
       });
+
+      if (page === 1) {
+        gallery.innerHTML = '';
+      }
+      
+      gallery.appendChild(fragment);
 
       if (data.totalHits <= currentPage * 40) {
         loadMoreBtn.style.display = 'none';
@@ -59,6 +67,7 @@ async function fetchImages(query, page) {
     Notiflix.Notify.failure('Error fetching images. Please try again later.');
   }
 }
+
 function createImageCard(image) {
   const card = document.createElement('div');
   card.classList.add('photo-card');
